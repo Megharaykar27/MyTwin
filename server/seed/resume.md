@@ -18,9 +18,6 @@ Programming languages: Python. Web technologies: HTML, CSS, JavaScript, JSP (bas
 ## Internship: ZetaCoding Innovative Solutions
 Internship at ZetaCoding Innovative Solutions from January 2025 to March 2025. Worked on an AI/ML project implemented with the Flask web framework and AIML-based algorithms. Developed Flask-based Python applications with server-side routing, database integration, reusable backend logic and debugging support. Gained practical exposure to scripting, AI concepts, web development workflows and project implementation using Python.
 
-## Project: SkinCart skincare website
-SkinCart is a single-page skincare product website built with HTML, CSS and JavaScript. It has anchor-based navigation across face care, body care, serums, trusted brands, feedback and registration sections. Feedback and registration forms use HTML5 input validation and JavaScript event handling for submission, confirmation and reset. The interface uses CSS Flexbox layouts, styled form components and hover transitions.
-
 ## Project: Habit Tracker Android app
 Habit Tracker is an Android habit-tracking application built with Kotlin, Jetpack Compose, Material 3, MVVM architecture, repositories, Coroutines and Flow. It stores habits, completions, journaling, authentication state and user settings locally with the Room database and DataStore Preferences, and uses Firebase. Built together with a friend as a team project.
 

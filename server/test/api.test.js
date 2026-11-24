@@ -101,10 +101,10 @@ describe("with no key (basic mode)", () => {
   before(async () => { s = await startServer(); });
   after(async () => { await s?.stop(); });
 
-  test("public profile: no phone, 7 projects, basic mode", async () => {
+  test("public profile: no phone, 6 projects, basic mode", async () => {
     const { data } = await s.call("GET", "/api/public/profile");
     assert.ok(!hasKey(data, "phone"));
-    assert.equal(data.projects.length, 7);
+    assert.equal(data.projects.length, 6);
     assert.equal(data.ai, "basic");
     assert.equal(data.has_owner, false);
   });
@@ -178,9 +178,9 @@ describe("with no key (basic mode)", () => {
     assert.equal(p.data.availability, "Open to work");
     const pub = (await s.call("GET", "/api/public/profile")).data;
     assert.ok(!("email" in pub) && !hasKey(pub, "phone"));
-    const pr = await s.call("PATCH", "/api/admin/projects/skincart", { featured: false, tagline: "A skincare page" }, token);
+    const pr = await s.call("PATCH", "/api/admin/projects/habit-tracker", { featured: false, tagline: "A habit app" }, token);
     assert.equal(pr.data.featured, false);
-    assert.equal(pr.data.tagline, "A skincare page");
+    assert.equal(pr.data.tagline, "A habit app");
   });
 
   test("job fit gives a score and is counted", async () => {
