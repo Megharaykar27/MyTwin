@@ -20,7 +20,7 @@ function Item({ q, open, onDone }) {
       <label className="label mt-3" htmlFor={`a-${q.id}`}>Write the answer</label>
       <textarea id={`a-${q.id}`} className="input" rows={3} maxLength={4000} value={text} onChange={(e) => setText(e.target.value)} placeholder="Write it as yourself, for example: Yes, I can relocate to Bengaluru." />
       <div className="mt-3 flex gap-2">
-        <button type="button" className="btn-primary" disabled={busy || !text.trim()} onClick={() => act(() => api.post(`/admin/unanswered/${q.id}/answer`, { answer: text }), "Saved. The twin knows this now.")}><Check size={15} /> Save</button>
+        <button type="button" className="btn-primary" disabled={busy || !text.trim()} onClick={() => act(() => api.post(`/admin/unanswered/${q.id}/answer`, { answer: text }), "Saved. Miu knows this now.")}><Check size={15} /> Save</button>
         <button type="button" className="btn-ghost" disabled={busy} onClick={() => act(() => api.post(`/admin/unanswered/${q.id}/dismiss`), "Dismissed")}><X size={15} /> Dismiss</button>
       </div>
     </li>
@@ -34,8 +34,8 @@ export default function Unanswered({ refresh, open }) {
   if (!list) return <p className="text-sm text-ink-mute">Loading...</p>;
   return (
     <>
-      <p className="mb-5 text-sm text-ink-soft">Questions the twin couldn't answer. Write an answer once and it becomes a Q&A the twin uses from then on.</p>
-      {list.length ? <ul className="space-y-4">{list.map((q) => <Item key={q.id} q={q} open={open} onDone={() => { load(); refresh(); }} />)}</ul> : <Empty>Nothing open. The twin could answer everything.</Empty>}
+      <p className="mb-5 text-sm text-ink-soft">Questions Miu couldn't answer. Write an answer once and it becomes a Q&A Miu uses from then on.</p>
+      {list.length ? <ul className="space-y-4">{list.map((q) => <Item key={q.id} q={q} open={open} onDone={() => { load(); refresh(); }} />)}</ul> : <Empty>Nothing open. Miu could answer everything.</Empty>}
     </>
   );
 }

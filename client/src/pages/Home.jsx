@@ -36,8 +36,8 @@ export default function Home() {
             {p.github && <a className="btn-ghost" href={p.github} target="_blank" rel="noreferrer"><GitHubIcon /> GitHub</a>}
           </div>
           <p className="mt-4 flex items-center gap-1.5 text-xs text-ink-mute">
-            AI twin · answers from {p.first_name}'s real resume and projects
-            <span tabIndex={0} role="img" aria-label="How it works: the twin only uses facts from the resume, project pages and notes. If it doesn't know something, it says so." title="The twin only uses facts from the resume, project pages and notes. If it doesn't know something, it says so." className="rounded-full"><Info size={14} /></span>
+            {p.ai_name} is {p.first_name}'s twin AI · answers from her real resume and projects
+            <span tabIndex={0} role="img" aria-label="How it works: Miu only uses facts from the resume, project pages and notes. If it doesn't know something, it says so." title="Miu only uses facts from the resume, project pages and notes. If it doesn't know something, it says so." className="rounded-full"><Info size={14} /></span>
           </p>
         </FadeUp>
 
@@ -66,10 +66,10 @@ export default function Home() {
         </FadeUp>
       </main>
       <footer className="border-t border-line px-4 py-6 text-center text-xs text-ink-mute">
-        Built by {p.name} with React, Node.js and Gemini · Share this twin
+        Built by {p.name} with React, Node.js and Gemini · Share Miu
         <button type="button" className="icon-btn ml-1 align-middle" aria-label="Show QR code" onClick={() => setShare(true)}><QrIcon size={16} /></button>
       </footer>
-      {share && <Modal title="Share this twin" onClose={() => setShare(false)}><QrCode url={`${window.location.origin}/`} /><p className="mt-4 break-all text-center text-xs text-ink-mute">{window.location.origin}/</p></Modal>}
+      {share && <Modal title="Share Miu" onClose={() => setShare(false)}><QrCode url={`${window.location.origin}/`} /><p className="mt-4 break-all text-center text-xs text-ink-mute">{window.location.origin}/</p></Modal>}
     </>
   );
 }

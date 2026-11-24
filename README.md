@@ -1,8 +1,8 @@
 # MyTwin
 
-**Talk to my AI twin.**
+**Talk to Miu, Megha's twin AI.**
 
-MyTwin is a website where recruiters chat with an AI twin of Megha Raykar. The twin answers in first person about her skills, projects, education, internship and hobbies, using **only facts from her real resume, project READMEs and notes**. Every answer shows its sources. If the twin doesn't know something, it says so and the recruiter can leave a message. Megha has an admin panel to update what the twin knows.
+MyTwin is a website where recruiters chat with **Miu**, the twin AI of Megha Raykar. Miu answers questions about her skills, projects, education, internship and hobbies, using **only facts from her real resume, project READMEs and notes**. Every answer shows its sources. If Miu doesn't know something, Miu says so and the recruiter can leave a message. Megha has an admin panel to update what Miu knows.
 
 ![MyTwin home page](docs/screenshots/home.png)
 
@@ -12,14 +12,14 @@ MyTwin is a website where recruiters chat with an AI twin of Megha Raykar. The t
 - **Sources on every answer.** Small numbers like `[1]` open the exact fact that was used.
 - **Live streaming.** The answer appears as it is written, and can be stopped at any time.
 - **Works with no keys.** With a free Gemini key the answers sound natural. Without one, basic mode builds answers from the matching facts.
-- **Honest about gaps.** Unknown questions go to a list in the admin panel. Megha answers once, and the twin knows it from then on.
+- **Honest about gaps.** Unknown questions go to a list in the admin panel. Megha answers once, and Miu knows it from then on.
 - **Private topics stay private.** Salary, age, family and similar questions get a polite "let's discuss directly". Phone numbers are never shown.
 - **Job-fit check.** Paste a job description and get a score with matched, partial and missing skills, and the closest projects.
 - **Project cards** next to the answers, with links to GitHub.
 - **Voice.** Ask by speaking and listen to the answers (in browsers that support it).
 - **Leave a message.** Messages land in the admin inbox.
-- **Admin panel:** stats, inbox, unanswered questions, conversations, resume upload (PDF, DOCX or TXT), GitHub sync, notes and Q&As, profile editor and a "Test the twin" box.
-- **Widget.** One line of code adds the twin to any website.
+- **Admin panel:** stats, inbox, unanswered questions, conversations, resume upload (PDF, DOCX or TXT), GitHub sync, notes and Q&As, profile editor and a "Test Miu" box.
+- **Widget.** One line of code adds Miu to any website.
 
 ## Screenshots
 
@@ -27,7 +27,7 @@ MyTwin is a website where recruiters chat with an AI twin of Megha Raykar. The t
 |---|---|
 | ![Chat](docs/screenshots/chat.png) | ![Job fit](docs/screenshots/job-fit.png) |
 
-| Admin overview | Knowledge and "Test the twin" |
+| Admin overview | Knowledge and "Test Miu" |
 |---|---|
 | ![Admin overview](docs/screenshots/admin-overview.png) | ![Knowledge](docs/screenshots/admin-knowledge.png) |
 
@@ -72,7 +72,7 @@ Answer streamed live, with sources and project cards
    │
    └─► Not in the facts?  "Leave a message" + the admin's Unanswered list
                               │
-                              └─► Megha writes the answer ──► the twin knows it
+                              └─► Megha writes the answer ──► Miu knows it
 ```
 
 ## Run it locally
@@ -98,7 +98,7 @@ Open http://localhost:5177. The admin panel is at http://localhost:5177/admin (t
 ## Make it yours
 
 1. Edit the files in `server/seed/` (`profile.json`, `resume.md`, `projects.json` and `readmes/`) before the first start, **or**
-2. use the admin panel: upload your resume, sync your GitHub and edit your profile.
+2. use the admin panel: upload your resume, sync your GitHub and edit your profile (you can also give the twin your own name instead of Miu).
 
 The seed files are loaded only when the database is empty. To load them again, stop the server and delete `server/mytwin.db`. This also deletes saved conversations and messages.
 

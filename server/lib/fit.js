@@ -66,7 +66,7 @@ export function scoreFit(jd) {
 
   const years = String(jd).match(/(\d{1,2})\s*(?:\+|(?:-|–|to)\s*\d{1,2}\s*\+?)?\s*(?:years?|yrs?)\b/i);
   const asked = years ? Number(years[1]) : 0;
-  const experience_note = asked > 0 ? `I'm a fresher (MCA, graduating 2027), so I'd bring project experience rather than ${asked} ${asked === 1 ? "year" : "years"} in a job.` : null;
+  const experience_note = asked > 0 ? `${getProfile().first_name || "Megha"} is a fresher (MCA, graduating 2027), so she'd bring project experience rather than ${asked} ${asked === 1 ? "year" : "years"} in a job.` : null;
 
   // Projects whose tech overlaps most with the matched skills
   const matchedAll = [...r.matched, ...n.matched];
@@ -83,18 +83,19 @@ export function scoreFit(jd) {
 }
 
 function plainSummary(f) {
+  const name = getProfile().first_name || getProfile().name;
   const learning = [...f.missing, ...f.partial.map((p) => p.skill), ...f.nice.missing].slice(0, 3);
   const summary = f.required_total
     ? [
-      `I match ${f.matched.length} of ${f.required_total} required skills${f.matched.length ? `, including ${list(f.matched.slice(0, 3))}` : ""}.`,
-      learning.length ? `I'm still learning ${list(learning)}.` : "",
-      f.projects.length ? `My closest work is ${list(f.projects.slice(0, 2).map((p) => p.name))}.` : "",
+      `${name} matches ${f.matched.length} of ${f.required_total} required skills${f.matched.length ? `, including ${list(f.matched.slice(0, 3))}` : ""}.`,
+      learning.length ? `She is still learning ${list(learning)}.` : "",
+      f.projects.length ? `Her closest work is ${list(f.projects.slice(0, 2).map((p) => p.name))}.` : "",
     ].filter(Boolean).join(" ")
     : "I couldn't find specific skills in this job description, so I can't give a fair score. Please paste the part that lists the requirements.";
   const talking_points = [
-    f.matched.length ? `I've used ${list(f.matched.slice(0, 4))}.` : null,
-    f.projects[0] ? `${f.projects[0].name}: ${f.projects[0].tagline || "one of my projects"}.` : null,
-    f.partial[0] ? `I know ${f.partial[0].via}, which is close to ${f.partial[0].skill}.` : "I learn quickly by building things.",
+    f.matched.length ? `${name} has used ${list(f.matched.slice(0, 4))}.` : null,
+    f.projects[0] ? `${f.projects[0].name}: ${f.projects[0].tagline || "one of her projects"}.` : null,
+    f.partial[0] ? `She knows ${f.partial[0].via}, which is close to ${f.partial[0].skill}.` : "She learns quickly by building things.",
   ].filter(Boolean);
   return { summary, talking_points };
 }
@@ -104,7 +105,7 @@ async function writtenSummary(f) {
   const { text } = await generate({
     contents: [{ role: "user", parts: [{ text: `Job-fit result for ${p.name} (MCA student and fresher):
 Score ${f.score}/100 (${f.verdict}). Required skills matched: ${f.matched.join(", ") || "none"}. Partial: ${f.partial.map((x) => `${x.skill} (knows ${x.via})`).join(", ") || "none"}. Missing: ${f.missing.join(", ") || "none"}. Nice-to-have matched: ${f.nice.matched.join(", ") || "none"}; missing: ${f.nice.missing.join(", ") || "none"}. Experience note: ${f.experience_note || "none"}. Closest projects: ${f.projects.map((x) => `${x.name} (${x.tagline || ""})`).join("; ") || "none"}.
-Write JSON: {"summary": "3 honest sentences in first person, simple English", "talking_points": ["3 short strings"]}. Use only the lists above. Never invent skills, numbers or experience.` }] }],
+Write JSON: {"summary": "3 honest sentences about her in third person, simple English", "talking_points": ["3 short strings"]}. Use only the lists above. Never invent skills, numbers or experience.` }] }],
     config: { responseMimeType: "application/json", temperature: 0.4 },
   });
   const j = JSON.parse(text);

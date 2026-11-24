@@ -78,7 +78,7 @@ export default function Message({ m, question, convId, visitor, firstName, live 
       <div className="min-w-0 max-w-[88%] flex-1 space-y-2">
         <div className="relative w-fit max-w-full">
           <div className="break-words rounded-3xl rounded-tl-lg border border-line bg-white px-4 py-2.5 text-sm leading-relaxed shadow-soft" aria-live={live ? "polite" : undefined}>
-            {m.text ? <Body text={m.text} sources={sources} onSource={setOpen} /> : <span className="dot-typing flex items-center gap-1 py-1.5" role="status" aria-label="The twin is thinking"><span /><span /><span /></span>}
+            {m.text ? <Body text={m.text} sources={sources} onSource={setOpen} /> : <span className="dot-typing flex items-center gap-1 py-1.5" role="status" aria-label="Miu is thinking"><span /><span /><span /></span>}
           </div>
           {open && (
             <div ref={pop} role="dialog" aria-label="Source" className="absolute left-2 top-full z-20 mt-1 w-72 max-w-[calc(100vw-5rem)] rounded-2xl border border-line bg-white p-3 text-xs shadow-soft">

@@ -6,7 +6,7 @@
 
   var script = document.currentScript || document.querySelector('script[src*="widget.js"][data-app]');
   var app = ((script && script.getAttribute("data-app")) || "http://localhost:5177").replace(/\/+$/, "");
-  var label = "Ask Megha's AI twin";
+  var label = "Ask Miu, Megha's twin AI";
 
   var style = document.createElement("style");
   style.textContent =

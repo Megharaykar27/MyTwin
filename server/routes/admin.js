@@ -157,12 +157,13 @@ r.get("/profile", (_req, res) => res.json({ accent: "#7C5CFF", show_email: true,
 r.put("/profile", wrap(async (req, res) => {
   const b = req.body || {};
   const p = { ...getProfile() };
-  for (const [k, max] of Object.entries({ name: 80, first_name: 40, headline: 160, location: 120, availability: 240, intro: 600, tone: 120 })) if (k in b) p[k] = redactPhones(str(b[k], max));
+  for (const [k, max] of Object.entries({ name: 80, first_name: 40, ai_name: 30, headline: 160, location: 120, availability: 240, intro: 600, tone: 120 })) if (k in b) p[k] = redactPhones(str(b[k], max));
   for (const k of ["linkedin", "github", "portfolio"]) if (k in b) p[k] = url(b[k]);
   if ("email" in b) {
     p.email = str(b.email, 120);
     if (p.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email)) throw new HttpError(400, "Enter a valid email address.");
   }
+  if (!p.ai_name) p.ai_name = "Miu";
   if (!p.name) throw new HttpError(400, "The name can't be empty.");
   if ("skills" in b) p.skills = chips(b.skills, 80, 60);
   if ("hobbies" in b) p.hobbies = chips(b.hobbies, 20, 80);

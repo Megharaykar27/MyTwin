@@ -34,8 +34,8 @@ export default function Login({ onDone }) {
       <FadeUp className="w-full max-w-sm">
         <div className="card p-7">
           <Orb size={56} />
-          <h1 className="mt-4 text-2xl font-bold tracking-tight">{hasOwner ? "Welcome back" : "Set up your twin"}</h1>
-          <p className="mt-1 text-sm text-ink-soft">{hasOwner ? "Log in to manage your twin." : "Create the owner account. This can be done only once."}</p>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight">{hasOwner ? "Welcome back" : "Set up Miu"}</h1>
+          <p className="mt-1 text-sm text-ink-soft">{hasOwner ? "Log in to manage Miu, your twin AI." : "Create the owner account. This can be done only once."}</p>
           <form className="mt-6 space-y-4" onSubmit={submit}>
             {field("email", "Email", "email", "username")}
             {field("password", hasOwner ? "Password" : "Password (8 or more characters)", "password", hasOwner ? "current-password" : "new-password")}
@@ -44,7 +44,7 @@ export default function Login({ onDone }) {
             <button className="btn-primary w-full py-2.5" disabled={busy}>{busy ? "Please wait..." : hasOwner ? "Log in" : "Create account"}</button>
           </form>
         </div>
-        <p className="mt-4 text-center text-sm"><Link className="text-ink-mute hover:text-ink" to="/">Back to the twin</Link></p>
+        <p className="mt-4 text-center text-sm"><Link className="text-ink-mute hover:text-ink" to="/">Back to Miu</Link></p>
       </FadeUp>
     </main>
   );

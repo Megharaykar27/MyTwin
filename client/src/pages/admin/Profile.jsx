@@ -5,7 +5,7 @@ import { useProfile } from "../../App.jsx";
 import { ChipInput } from "../../components/ui.jsx";
 import { api, errorText } from "../../lib/api.js";
 
-const FIELDS = [["name", "Full name"], ["first_name", "First name"], ["headline", "Headline", true], ["location", "Location"], ["email", "Email"], ["linkedin", "LinkedIn link"], ["github", "GitHub link"], ["portfolio", "Portfolio link"], ["tone", "Tone of the answers"], ["availability", "Availability", true]];
+const FIELDS = [["name", "Full name"], ["first_name", "First name"], ["ai_name", "Twin AI's name"], ["headline", "Headline", true], ["location", "Location"], ["email", "Email"], ["linkedin", "LinkedIn link"], ["github", "GitHub link"], ["portfolio", "Portfolio link"], ["tone", "Tone of the answers"], ["availability", "Availability", true]];
 
 function ProjectRow({ project, onSaved }) {
   const [p, setP] = useState(project);

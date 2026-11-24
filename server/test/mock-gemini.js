@@ -19,7 +19,7 @@ export async function startMockGemini() {
         const last = JSON.parse(body).contents.at(-1).parts.map((p) => p.text).join("");
         const pieces = last.includes("salary of the CEO")
           ? ["[NO_A", "NSWER] I don't have that detail, ", "but you can leave a message."]
-          : ["I built Neuro", "Check, a stroke-risk app with ", "leak-safe testing [1]."];
+          : ["Megha built Neuro", "Check, a stroke-risk app with ", "leak-safe testing [1]."];
         res.writeHead(200, { "content-type": "text/event-stream" });
         for (const [i, t] of pieces.entries()) setTimeout(() => {
           res.write(`data: ${JSON.stringify(piece(t))}\r\n\r\n`);
@@ -29,7 +29,7 @@ export async function startMockGemini() {
       }
 
       if (path.endsWith(":generateContent"))
-        return json(piece(JSON.stringify({ summary: "I match most of this role. I know React and Node.js. I'm still learning Docker.", talking_points: ["React projects", "Node.js APIs", "Fast learner"] })));
+        return json(piece(JSON.stringify({ summary: "Megha matches most of this role. She knows React and Node.js. She is still learning Docker.", talking_points: ["React projects", "Node.js APIs", "Fast learner"] })));
 
       res.writeHead(404, { "content-type": "application/json" });
       res.end(JSON.stringify({ error: { code: 404, message: `mock: ${req.method} ${req.url} not found` } }));

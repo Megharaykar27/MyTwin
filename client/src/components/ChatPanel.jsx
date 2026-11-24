@@ -13,6 +13,7 @@ import { Modal } from "./ui.jsx";
 export default function ChatPanel({ source = "web", prefill = "", className = "" }) {
   const { profile } = useProfile();
   const first = profile.first_name || profile.name;
+  const ai = profile.ai_name || "Miu";
   const KEY = `mt_conv_${source}`, ASKED = `mt_visitor_${source}`;
   const [convId, setConvId] = useState(() => store.get(KEY));
   const [visitor, setVisitor] = useState({ name: "", company: "", role: "" });
@@ -100,15 +101,16 @@ export default function ChatPanel({ source = "web", prefill = "", className = ""
   const welcome = { id: "welcome", role: "twin", text: profile.intro, sources: [], projects: [] };
 
   return (
-    <section aria-label={`Chat with ${first}'s AI twin`} className={`flex min-h-0 flex-col overflow-hidden bg-white/80 backdrop-blur ${source === "widget" ? "" : "card"} ${className}`}>
+    <section aria-label={`Chat with ${ai}, ${first}'s twin AI`} className={`flex min-h-0 flex-col overflow-hidden bg-white/80 backdrop-blur ${source === "widget" ? "" : "card"} ${className}`}>
       <header className={`flex items-center gap-2.5 border-b border-line px-4 py-3 ${source === "widget" ? "pr-14" : ""}`}>
         <Orb size={34} state={busy ? (live ? "speaking" : "thinking") : "idle"} />
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold">{first}'s AI twin</p>
+          <p className="truncate text-sm font-semibold">{ai}</p>
           <p className="flex items-center gap-1.5 text-xs text-ink-mute">
+            <span className="truncate">{first}'s twin AI</span>
             {profile.ai === "basic"
-              ? <span tabIndex={0} title="Answers come straight from Megha's notes. Add a Gemini key for natural replies." className="rounded-full bg-lav-50 px-2 py-0.5 font-medium text-lav-700">Basic mode</span>
-              : <span>{busy ? "Writing..." : "Online"}</span>}
+              ? <span tabIndex={0} title="Answers come straight from Megha's notes. Add a Gemini key for natural replies." className="hidden shrink-0 rounded-full bg-lav-50 px-2 py-0.5 font-medium text-lav-700 sm:inline">Basic mode</span>
+              : <span>· {busy ? "writing..." : "online"}</span>}
           </p>
         </div>
         {source === "widget" && <a className="icon-btn" href="/" target="_blank" rel="noreferrer" aria-label="Open the full page" title="Open the full page"><ExternalLink size={16} /></a>}
@@ -140,7 +142,7 @@ export default function ChatPanel({ source = "web", prefill = "", className = ""
 
       <form className="border-t border-line bg-white p-3" onSubmit={(e) => { e.preventDefault(); send(text); }}>
         <div className="flex items-end gap-1.5 rounded-3xl border border-line bg-canvas p-1.5 transition focus-within:border-lav-300 focus-within:ring-2 focus-within:ring-lav-200">
-          <textarea ref={input} rows={1} value={text} maxLength={600} aria-label="Your question" placeholder={`Ask about ${first}'s projects, skills, studies...`} onChange={(e) => setText(e.target.value)}
+          <textarea ref={input} rows={1} value={text} maxLength={600} aria-label="Your question" placeholder={`Ask ${ai} about ${first}...`} onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); send(text); } }}
             className="max-h-[132px] min-w-0 flex-1 resize-none bg-transparent px-3 py-2 text-sm leading-relaxed placeholder:text-ink-mute focus-visible:ring-0" />
           {canListen && <button type="button" onClick={mic} aria-label={recording ? "Stop recording" : "Speak your question"} aria-pressed={recording} className={`icon-btn h-9 w-9 ${recording ? "animate-pulse bg-blush/40 text-pink-700" : ""}`}><Mic size={17} /></button>}

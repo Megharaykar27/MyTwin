@@ -157,6 +157,8 @@ describe("with no key (basic mode)", () => {
     const again = await chat(s, q);
     assert.equal(again.done.unanswered, false);
     assert.match(again.done.text, /O positive/);
+    const made = (await s.call("GET", "/api/public/profile")).data;
+    assert.equal(made.ai_name, "Miu");
   });
 
   test("notes can be added, edited and deleted; the resume can't be edited here", async () => {
@@ -184,7 +186,7 @@ describe("with no key (basic mode)", () => {
   test("job fit gives a score and is counted", async () => {
     const f = await s.call("POST", "/api/fit", { jd: "Junior Full Stack Developer\nRequirements: React, Node.js, MongoDB, REST APIs, Git\nNice to have: TypeScript, Docker, AWS" });
     assert.ok(f.data.score >= 40 && f.data.score <= 95);
-    assert.match(f.data.summary, /I match 5 of 5/);
+    assert.match(f.data.summary, /Megha matches 5 of 5/);
     assert.equal((await s.call("POST", "/api/fit", { jd: "too short" })).status, 400);
     const o = (await s.call("GET", "/api/admin/overview", undefined, token)).data;
     assert.equal(o.totals.fit_checks, 1);

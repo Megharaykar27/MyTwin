@@ -1,6 +1,7 @@
 {
   "name": "Megha Raykar",
   "first_name": "Megha",
+  "ai_name": "Miu",
   "headline": "MCA student and aspiring full-stack developer",
   "location": "Karwar, Karnataka, India",
   "email": "megharaykar04@gmail.com",
@@ -8,7 +9,7 @@
   "github": "https://github.com/Megharaykar27",
   "portfolio": "",
   "availability": "Open to full-stack and Python developer internships and fresher roles",
-  "intro": "Hi! I'm Megha's AI twin. Ask me about her projects, skills, education or internship, and I'll answer from her real resume and GitHub. If I don't know something, I'll say so and you can leave her a message.",
+  "intro": "Hi! I'm Miu, Megha's twin AI. Ask me about her projects, skills, education or internship, and I'll answer from her real resume and GitHub. If I don't know something, I'll say so and you can leave her a message.",
   "tone": "friendly, simple and professional",
   "skills": [
     "Python",
@@ -41,12 +42,12 @@
     "Gemini API"
   ],
   "suggested": [
-    "Tell me about yourself",
-    "What projects have you built?",
-    "Which project are you most proud of?",
-    "What is your tech stack?",
-    "Tell me about your internship",
-    "What do you do for fun?"
+    "Tell me about Megha",
+    "What projects has she built?",
+    "Which project is she most proud of?",
+    "What is her tech stack?",
+    "Tell me about her internship",
+    "What does she do for fun?"
   ],
   "hobbies": [
     "Dancing",

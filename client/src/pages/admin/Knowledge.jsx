@@ -73,7 +73,7 @@ function TestBox() {
   };
   return (
     <section className="card p-5">
-      <h2 className="flex items-center gap-1.5 text-sm font-semibold"><FlaskConical size={15} /> Test the twin</h2>
+      <h2 className="flex items-center gap-1.5 text-sm font-semibold"><FlaskConical size={15} /> Test Miu</h2>
       <p className="mb-3 text-xs text-ink-mute">Ask something and see the answer with the facts behind it. Nothing is saved.</p>
       <form onSubmit={ask} className="flex gap-2"><input className="input" aria-label="Test question" maxLength={600} value={q} onChange={(e) => setQ(e.target.value)} placeholder="What is your tech stack?" /><button className="btn-primary shrink-0" disabled={busy || !q.trim()}>{busy ? "..." : "Ask"}</button></form>
       {r && (
@@ -122,7 +122,7 @@ export default function Knowledge({ overview, refresh }) {
   useEffect(() => { load(); }, [load]);
   const get = async (id, fn) => { try { fn((await api.get(`/admin/knowledge/${id}`)).data); } catch (e) { toast.error(errorText(e)); } };
   const remove = async (d) => {
-    if (!window.confirm(`Delete "${d.title}"? The twin will forget it.`)) return;
+    if (!window.confirm(`Delete "${d.title}"? Miu will forget it.`)) return;
     try { await api.delete(`/admin/knowledge/${d.id}`); load(); } catch (e) { toast.error(errorText(e)); }
   };
   return (
@@ -131,7 +131,7 @@ export default function Knowledge({ overview, refresh }) {
       <div className="grid gap-5 lg:grid-cols-2"><ResumeCard onDone={load} /><GithubCard user={overview?.github_user} onDone={load} /></div>
       <section className="card overflow-hidden">
         <div className="flex flex-wrap items-center gap-2 p-5 pb-3">
-          <h2 className="mr-auto text-sm font-semibold">What the twin knows</h2>
+          <h2 className="mr-auto text-sm font-semibold">What Miu knows</h2>
           <button type="button" className="btn-ghost" onClick={() => setEdit({ source: "note" })}><Plus size={15} /> Add note</button>
           <button type="button" className="btn-ghost" onClick={() => setEdit({ source: "qa" })}><Plus size={15} /> Add Q&A</button>
         </div>

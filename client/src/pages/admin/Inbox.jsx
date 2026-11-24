@@ -34,7 +34,7 @@ export default function Inbox({ refresh, open }) {
           <p className="text-xs text-ink-mute">{when(lead.created_at)}</p>
           <p className="my-5 whitespace-pre-wrap break-words leading-relaxed">{lead.message}</p>
           <div className="flex flex-wrap gap-2">
-            <a className="btn-primary" href={`mailto:${lead.email}?subject=${encodeURIComponent("Your message to my AI twin")}`}><Mail size={15} /> Reply by email</a>
+            <a className="btn-primary" href={`mailto:${lead.email}?subject=${encodeURIComponent("Your message through Miu, my twin AI")}`}><Mail size={15} /> Reply by email</a>
             <button type="button" className="btn-ghost" onClick={() => mark(lead, !lead.read)}><MailOpen size={15} /> Mark as {lead.read ? "unread" : "read"}</button>
             {lead.conv_id && <button type="button" className="btn-ghost" onClick={() => open("conversations", { id: lead.conv_id })}>See the chat</button>}
             <button type="button" className="btn-danger" onClick={() => window.confirm("Delete this message?") && act(async () => { await api.delete(`/admin/leads/${lead.id}`); setId(null); })}><Trash2 size={15} /> Delete</button>

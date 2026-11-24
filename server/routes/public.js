@@ -12,7 +12,7 @@ const r = Router();
 r.get("/public/profile", (_req, res) => {
   const p = getProfile();
   if (p.show_email === false) delete p.email;
-  res.json({ accent: "#7C5CFF", ...p, projects: listProjects(), ai: geminiOn ? "gemini" : "basic", has_owner: !!one("SELECT 1 FROM owners LIMIT 1") });
+  res.json({ accent: "#7C5CFF", ai_name: "Miu", ...p, projects: listProjects(), ai: geminiOn ? "gemini" : "basic", has_owner: !!one("SELECT 1 FROM owners LIMIT 1") });
 });
 
 const leadLimit = rateLimit({

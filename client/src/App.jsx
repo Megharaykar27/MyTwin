@@ -34,7 +34,7 @@ export default function App() {
         <div className="studio-bg" />
         <Center>
           <Orb size={72} state={error ? "idle" : "thinking"} />
-          {error ? <><p className="text-sm text-ink-soft">{error}</p><button className="btn-primary" onClick={load}>Try again</button></> : <p className="text-sm text-ink-mute">Waking up the twin...</p>}
+          {error ? <><p className="text-sm text-ink-soft">{error}</p><button className="btn-primary" onClick={load}>Try again</button></> : <p className="text-sm text-ink-mute">Waking up Miu...</p>}
         </Center>
       </>
     );
@@ -49,7 +49,7 @@ export default function App() {
           <Route path="/fit" element={<Fit />} />
           <Route path="/embed" element={<Embed />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<Center><Orb size={72} /><p className="text-ink-soft">This page doesn't exist.</p><Link className="btn-primary" to="/">Back to the twin</Link></Center>} />
+          <Route path="*" element={<Center><Orb size={72} /><p className="text-ink-soft">This page doesn't exist.</p><Link className="btn-primary" to="/">Back to Miu</Link></Center>} />
         </Routes>
       </Suspense>
     </ProfileContext.Provider>

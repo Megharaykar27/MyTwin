@@ -78,7 +78,7 @@ export default function Fit() {
     <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-10">
       <FadeUp>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Is {profile.first_name} a good <span className="serif-word">fit?</span></h1>
-        <p className="mt-2 text-ink-soft">Paste a job description. The twin compares it with {profile.first_name}'s real skills and shows an honest score.</p>
+        <p className="mt-2 text-ink-soft">Paste a job description. {profile.ai_name} compares it with {profile.first_name}'s real skills and shows an honest score.</p>
         <form onSubmit={check} className="card mt-6 p-4 sm:p-5">
           <label className="label" htmlFor="jd">Paste a job description</label>
           <textarea id="jd" className="input thin-scroll resize-y" rows={f ? 6 : 11} maxLength={8000} value={jd} onChange={(e) => setJd(e.target.value)} placeholder={"Job title\n\nRequirements: ...\nNice to have: ..."} />
@@ -115,7 +115,7 @@ export default function Fit() {
             </div>
             {f.projects.length > 0 && <section><h2 className="mb-3 text-sm font-semibold">Projects that show it</h2><div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">{f.projects.map((p) => <ProjectCard key={p.slug} project={p} />)}</div></section>}
             {f.talking_points.length > 0 && <section className="card p-5"><h2 className="mb-2 text-sm font-semibold">Talking points</h2><ul className="space-y-1.5 text-sm text-ink-soft">{f.talking_points.map((t) => <li key={t} className="flex gap-2"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lav-400" />{t}</li>)}</ul></section>}
-            <button className="btn-ghost" onClick={() => go("/", { state: { question: `Why would you be a good fit for this role: ${title}?` } })}><MessageCircle size={16} /> Ask the twin about this role</button>
+            <button className="btn-ghost" onClick={() => go("/", { state: { question: `Why would Megha be a good fit for this role: ${title}?` } })}><MessageCircle size={16} /> Ask {profile.ai_name} about this role</button>
           </FadeUp>
         </div>
       )}
