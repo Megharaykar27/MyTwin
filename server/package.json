@@ -1,0 +1,30 @@
+{
+  "name": "mytwin-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "author": "Megha Raykar",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning index.js",
+    "dev": "node --watch --disable-warning=ExperimentalWarning index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/engine.test.js test/api.test.js"
+  },
+  "dependencies": {
+    "@google/genai": "^3.6.1",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.5",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.13.0",
+    "multer": "^2.5.0",
+    "nanoid": "^6.0.2",
+    "unpdf": "^2.2.2"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "mytwin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Talk to my AI twin: a chatbot that answers recruiters from a real resume and projects.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "author": "Megha Raykar",
+  "license": "MIT",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "test": "node scripts/test.mjs",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
