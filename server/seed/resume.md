@@ -4,7 +4,7 @@
 Motivated MCA student and aspiring Full Stack Developer with a strong interest in Python and a passion for building practical, user-friendly web applications. Self-driven and detail-oriented, with good problem-solving skills and a willingness to learn new technologies. Eager to take on real-world challenges, collaborate with teams, and keep growing while delivering reliable software solutions.
 
 ## Location and contact
-Based in Karwar, Karnataka, India. Currently studying in Mangaluru. Email: megharaykar04@gmail.com. LinkedIn: linkedin.com/in/megha-raykar-335617337. GitHub: github.com/Megharaykar27.
+Based in Karwar, Karnataka, India. Currently studying in Mangaluru. Email: megharaykar04@gmail.com. LinkedIn: linkedin.com/in/meghxcoder. GitHub: github.com/Megharaykar27.
 
 ## Education: MCA
 Master of Computer Applications (MCA) at St Aloysius Deemed to be University (AIMIT), Mangaluru, Karnataka. July 2025 to 2027 (expected graduation 2027).

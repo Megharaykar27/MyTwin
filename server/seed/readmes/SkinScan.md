@@ -151,4 +151,4 @@ SkinScan works from a single front-facing 2D photo (side views are refused). Lig
 
 ## Author
 
-**Megha Raykar** · [GitHub](https://github.com/Megharaykar27) · [LinkedIn](https://www.linkedin.com/in/megha-raykar-335617337)
+**Megha Raykar** · [GitHub](https://github.com/Megharaykar27) · [LinkedIn](https://www.linkedin.com/in/meghxcoder)

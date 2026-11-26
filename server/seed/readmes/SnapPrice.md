@@ -170,4 +170,4 @@ scripts/       setup and test helpers (work on Windows, macOS and Linux)
 
 ## Author
 
-**Megha Raykar** · [GitHub](https://github.com/Megharaykar27) · [LinkedIn](https://www.linkedin.com/in/megha-raykar-335617337)
+**Megha Raykar** · [GitHub](https://github.com/Megharaykar27) · [LinkedIn](https://www.linkedin.com/in/meghxcoder)
