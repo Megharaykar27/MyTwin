@@ -101,10 +101,10 @@ describe("with no key (basic mode)", () => {
   before(async () => { s = await startServer(); });
   after(async () => { await s?.stop(); });
 
-  test("public profile: no phone, 7 projects, basic mode", async () => {
+  test("public profile: no phone, 6 projects, basic mode", async () => {
     const { data } = await s.call("GET", "/api/public/profile");
     assert.ok(!hasKey(data, "phone"));
-    assert.equal(data.projects.length, 7);
+    assert.equal(data.projects.length, 6);
     assert.equal(data.ai, "basic");
     assert.equal(data.has_owner, false);
   });
